@@ -17,13 +17,14 @@ Standard productivity tools fail because generic sub-tasks trigger task paralysi
 * **Tech Stack:** Next.js, LLM Task Decomposition pipelines, Framer Motion.
 
 ### 3. Real-Time Cognitive Load Guardrail (Second Brain)
-Acts as an external working memory buffer. It captures active text, ideas, and context, allowing for conversational semantic retrieval when a user experiences a context-switching block.
-* **How it works:** A local vector-based search pipeline allows users to query their past thoughts (e.g., *"Where did I write about that AI app idea?"*) using natural language, instantly re-establishing their exact previous working state.
-* **Tech Stack:** Local vector embeddings, custom similarity search algorithms.
+Neurodivergent users often struggle with fragmented working memory, frequently maintaining dozens of open tabs and constantly context-switching between disparate tasks. This feature acts as a personalized external working memory buffer to catch those lost threads.
+* **How it works:** The system utilizes a Retrieval-Augmented Generation (RAG) pipeline to index the user's unstructured notes and active working context. If a user gets distracted or experiences a context block, they can ask natural, conversational questions (e.g., *"What tab was I on before doing this?"* or *"Where did I write about that AI app idea?"*). The pipeline semantically searches their historical data to instantly re-establish their exact previous working state, eliminating the friction of figuring out "where you left off."
+* **Tech Stack:** Local Vector Embeddings (IndexedDB), Hybrid Keyword/Vector Similarity Search, LLM RAG Pipeline.
 
-### 4. Focus Sentinel & Digital Reset
-A dedicated space to clear digital noise and lock into deep work.
-* **How it works:** Features a customizable Pomodoro timer specifically tuned for neurodivergent users, accompanied by a "Digital Reset Checklist" to audit notifications, clear browser tabs, and create physical focus barriers.
+### 4. Focus Sentinel (Chrome Extension) & Digital Reset
+A dedicated background utility and dashboard space designed to clear digital noise, monitor cognitive drift, and lock into deep work.
+* **How it works:** A companion Chrome Extension (The Focus Sentinel) acts as a background monitor that tracks distracting sites (e.g., YouTube, Reddit) and intercepts the user with a frictionless, NLP-based nudge (e.g., *"Are you doomscrolling, or did you need this for your research?"*). This allows users to catch themselves mid-distraction without the heavy-handed frustration of a hard site-blocker. It pairs with a customizable Pomodoro timer and a "Digital Reset Checklist."
+* **Tech Stack:** Chrome Extension API (Manifest V3), Service Workers, React DOM Injection.
 
 ## Technical Stack
 * **Frontend:** Next.js 14, React, TailwindCSS, Framer Motion
