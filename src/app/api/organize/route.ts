@@ -65,7 +65,7 @@ Raw Brain Dump:
         model: 'text-embedding-004',
         contents: item.text,
       });
-      return { ...item, embedding: embRes.embeddings[0].values };
+      return { ...item, embedding: embRes.embeddings?.[0]?.values || [] };
     }));
 
     return NextResponse.json({ organizedData, itemsWithEmbeddings });

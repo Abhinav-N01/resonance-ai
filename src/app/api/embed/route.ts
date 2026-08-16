@@ -20,7 +20,7 @@ export async function POST(req: Request) {
       contents: text,
     });
 
-    return NextResponse.json({ embedding: response.embeddings[0].values });
+    return NextResponse.json({ embedding: response.embeddings?.[0]?.values || [] });
   } catch (error: any) {
     console.error("Embedding Error:", error);
     return NextResponse.json({ error: error.message || "Failed to generate embedding" }, { status: 500 });

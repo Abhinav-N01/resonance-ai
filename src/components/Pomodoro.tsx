@@ -105,7 +105,7 @@ export function Pomodoro() {
       <AnimatePresence>
         {showSettings && (
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95, originTopRight: true }}
+            initial={{ opacity: 0, scale: 0.95, originX: 1, originY: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             className="absolute top-14 right-4 glass-pill p-6 rounded-2xl w-80 z-50 flex flex-col gap-6"
