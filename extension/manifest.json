@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Focus Sentinel",
+  "version": "1.0",
+  "description": "An ADHD-friendly background monitor that intercepts cognitive drift with gentle NLP nudges.",
+  "permissions": ["tabs", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {}
+}

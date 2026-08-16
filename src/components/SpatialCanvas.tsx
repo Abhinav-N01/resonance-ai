@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useMemo } from "react";
-import { ReactFlow, Background, Controls, Node, Edge, BackgroundVariant } from "@xyflow/react";
+import { ReactFlow, Background, Controls, Node, Edge, BackgroundVariant, Handle, Position } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { cosineSimilarity } from "@/lib/vectorStore";
 import { BrainCircuit, ListTodo, Calendar, Lightbulb, Map, Plus, Loader2 } from "lucide-react";
@@ -16,6 +16,7 @@ const getIcon = (category: string) => {
 function CustomStickyNode({ data }: { data: any }) {
   return (
     <div className="glass-panel p-4 rounded-2xl w-60 border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all cursor-pointer relative overflow-hidden group">
+      <Handle type="target" position={Position.Top} className="opacity-0" />
       <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-purple-900/40 via-transparent to-transparent pointer-events-none group-hover:opacity-100 transition-opacity duration-500"></div>
       <div className="relative z-10">
         <div className="flex items-center gap-2 mb-3 pb-3 border-b border-white/10">
@@ -26,6 +27,7 @@ function CustomStickyNode({ data }: { data: any }) {
         </div>
         <p className="text-sm font-medium leading-relaxed text-zinc-200 whitespace-pre-wrap">{data.label}</p>
       </div>
+      <Handle type="source" position={Position.Bottom} className="opacity-0" />
     </div>
   );
 }
